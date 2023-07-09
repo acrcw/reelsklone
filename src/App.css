@@ -11,7 +11,7 @@
   position: relative;
   padding: 0;
   height: 5rem;
-  top: -1.5rem;
+  top: 0.5rem;
   /* background-color: red; */
 
 }
@@ -55,13 +55,6 @@
   /* z-index: 2; */
 }
 
-.slide-img {
-  /* position: absolute; */
-  /* height: 10rem; */
-  /* width: 2rem; */
-  /* object-fit: fill; */
-  /* background-color: red; */
-}
 
 .tool-bar {
   display: flex;
@@ -116,11 +109,20 @@
 
 .signup-logo img {
   position: relative;
+  object-fit: fill;
   top: 0rem;
-
+  height: 100%;
   display: flex;
-  /* align-items: center; */
-  width: 60%;
+  align-items: center;
+  width: 100%;
+}
+.signup-logo {
+  height: 4rem;
+  margin: 1rem;
+  /* background-color: red; */
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .upload-btn {
@@ -140,14 +142,7 @@ body {
   display: flex;
   align-items: center;
 }
-.signup-logo {
-  height: 4rem;
-  margin: 1rem;
-  /* background-color: red; */
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
+
 
 @media only screen and (max-width:1082px) {
   .signup-cont {

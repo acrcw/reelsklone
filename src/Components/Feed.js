@@ -1,14 +1,9 @@
 import { storage, db, getMetadata, serverTimestamp, Timestamp, ref, uploadBytesResumable, orderBy, limit, getDownloadURL, getDoc, setDoc, doc, addDoc, updateDoc, collection, query, where, getDocs } from '../firebase';
 import React, { useEffect, useState, useContext } from 'react';
-import ReactDOM from 'react-dom';
+
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Slide from '@mui/material/Slide';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Navbar from './Navbar';
@@ -58,7 +53,35 @@ function Feed() {
   const [post, setPost] = useState(null);
   const { user } = useContext(AuthContext);
   const [upload, setUpload] = useState(true);
+  const toggleDrawer = () => (event) => {
+    setComment(!comment);
+  };
 
+  const list = (anchor) => (
+    <Box
+      sx={{ width: 400 }}
+      role="presentation"
+      onClick={toggleDrawer()}
+      onKeyDown={toggleDrawer()}
+    >
+    
+        {commentdata.map((text, index) => (
+          <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 1 }}>
+          <Paper sx={{ my: 1, mx: 'auto', p: 2 }}>
+            <Grid container wrap="nowrap" spacing={2}>
+              <Grid item>
+                <Avatar>A</Avatar>
+              </Grid>
+              <Grid item xs>
+              <Typography sx={{ overflowWrap: 'break-word', width:"80%" }}>{text}</Typography>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Box>
+        ))}
+     
+    </Box>
+  );
   const handlecommentClose = () => {
     setComment(false);
     // setScroll(scrollType);
@@ -136,15 +159,7 @@ function Feed() {
     e.preventDefault();
     e.target.muted = !e.target.muted;
   }
-  const descriptionElementRef = React.useRef(null);
-  React.useEffect(() => {
-    if (open) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [open]);
+
 
   return (
     <><Navbar props={[updateUploadState, upload]} />
@@ -291,45 +306,14 @@ function Feed() {
                 </Link>
               </CardOverflow>
             </Card>
-
-
-
-
-
-              <Dialog
-                open={comment}
-                onClose={handlecommentClose}
-                scroll={scroll}
-                aria-labelledby="scroll-dialog-title"
-                aria-describedby="scroll-dialog-description"
-              >
-                <DialogTitle id="scroll-dialog-title">Comments</DialogTitle>
-                <DialogContent dividers={"paper"}>
-                  <DialogContentText
-                    id="scroll-dialog-description"
-                    ref={descriptionElementRef}
-                    tabIndex={-1}
-                  >
-                    {commentdata.map((comment) => (
-  <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 1,width:"70vh" }}>
-    <StyledPaper sx={{ my: 1, mx: 'auto', p: 2 }}>
-      <Grid container wrap="nowrap" spacing={2}>
-        <Grid item>
-          <Avatar>W</Avatar>
-        </Grid>
-        <Grid item xs>
-          <Typography>{comment}</Typography>
-        </Grid>
-      </Grid>
-    </StyledPaper>
-  </Box>
-))}
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handlecommentClose}>Close</Button>
-                </DialogActions>
-              </Dialog>
+            <SwipeableDrawer
+        anchor={"right"}
+        open={comment}
+        onClose={toggleDrawer("right", false)}
+        onOpen={toggleDrawer("right", true)}
+      >
+        {list("right")}
+      </SwipeableDrawer>
             </>}
           </React.Fragment>
 
