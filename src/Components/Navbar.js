@@ -56,7 +56,10 @@ function Navbar({ props }) {
     setAnchorElUser(event.currentTarget);
   };
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: ['image/*','video/*'],
+    accept: {
+      'image/*':['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp'],
+      'video/*':['.mp4', '.mov', '.avi', '.mkv', '.wmv', '.flv', '.webm']
+    },
     onDrop: (acceptedFiles) => {
       setFiles(acceptedFiles);
       console.log(acceptedFiles);
@@ -64,10 +67,14 @@ function Navbar({ props }) {
   });
   const handleupload = async () => {
     console.log(files)
-
+    
     props[0](!props[1])
-
+    if(files.length===0)
+    {
+      return;
+    }
     let file = files[0];
+     setFiles([])
     console.log(file.type.split("/")[0])
     let postid = uuidv4();
 
@@ -115,6 +122,7 @@ function Navbar({ props }) {
         });
       }
     );
+    setFiles([])
     setOpen(false);
   }
 
