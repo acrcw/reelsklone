@@ -142,7 +142,15 @@ body {
   display: flex;
   align-items: center;
 }
-
+#upload-cont{
+  background-color:#f5f6fa;
+  height:30vh;
+  width:30vw;
+ border-color: darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media only screen and (max-width:1082px) {
   .signup-cont {
