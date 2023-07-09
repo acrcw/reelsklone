@@ -1,38 +1,195 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.bar {
+  background-color: white;
+  height: 4rem;
+  color: black;
   display: flex;
-  flex-direction: column;
+  width: 100vw;
+
+}
+
+.logo {
+  position: relative;
+  padding: 0;
+  height: 5rem;
+  top: -1.5rem;
+  /* background-color: red; */
+
+}
+
+.logo img {
+  position: relative;
+  top: 0.4rem;
+  display: flex;
   align-items: center;
+  width: 12rem;
+
+}
+
+.logo-signup img {
+  position: relative;
+  /* top:2rem; */
+  height: 4rem;
+  width: 20rem;
+}
+
+.profile-mobile {
+  position: relative;
+  top: 0rem;
+  right: 0.4rem;
+  height: 1rem;
+}
+
+.nav-menu {
+  position: relative;
+
+}
+
+.carousel-images {
+  /* background-color: red; */
+  /* height:34rem; */
+  object-fit: fill;
+  width: 15.5rem;
+  position: relative;
+  top: 1.5rem;
+  left: 9.8rem;
+  /* z-index: 2; */
+}
+
+.slide-img {
+  /* position: absolute; */
+  /* height: 10rem; */
+  /* width: 2rem; */
+  /* object-fit: fill; */
+  /* background-color: red; */
+}
+
+.tool-bar {
+  display: flex;
+
+  align-items: center;
+  /* background-color: red; */
+  width: 98vw;
+  left: -1.5rem;
+  height: 1rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.carousel-container {
+  position: relative;
+  height: 100vh;
+  width: 40vw;
+  left: 10rem;
+  background-image: url(./Icons/carousalcontaner.png);
+  background-repeat: no-repeat;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.login-wrapper {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-around;
+  align-items: center;
+}
+.forget-box{
+  position: relative;
+  top:calc(100vh - 90vh);
+}
+.signup-span {
+  position: relative;
+  left: 9rem;
+}
+.forget-cont{
+  position: relative;
+  /* top:6rem; */
+  border-radius: 1rem;
+}
+.reset-text
+{
+  color: rgb(115, 115, 115);
+  width:80%;
+  font-size: small;
+}
+.login-cont {
+  position: relative;
+  /* top:6rem; */
+  border-radius: 1rem;
+}
+
+.signup-logo img {
+  position: relative;
+  top: 0rem;
+
+  display: flex;
+  /* align-items: center; */
+  width: 60%;
+}
+
+.upload-btn {
+  display: flex;
+  width: 100%;
+  position: relative;
+  left: 0.5rem;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.thumbnail
+{
+  display: flex;
+  align-items: center;
+}
+.signup-logo {
+  height: 4rem;
+  margin: 1rem;
+  /* background-color: red; */
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width:1082px) {
+  .signup-cont {
+    /* background-color: red; */
+    width: 70vw;
+    margin-right: 2rem;
+    margin-left: 0rem;
+    /* height:10vh */
   }
-  to {
-    transform: rotate(360deg);
+.vid{
+  object-fit: contain  ;
+  width: 100%;
+  height: 80vh;
+}
+  .upload-btn {
+    display: flex;
+    width: 100%;
+    position: relative;
+    /* left:1rem; */
+    align-items: center;
   }
+
+  .or-span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    left: 44rem;
+  }
+
+  .carousel-images {
+    display: none;
+  }
+
+  .carousel-container {
+    display: none;
+  }
+
+  .signup-cont {
+    display: block;
+  }
+
+
 }
