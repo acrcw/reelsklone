@@ -1,4 +1,7 @@
+
 import React, { useCallback, useEffect, useState, useContext } from 'react';
+
+import { CloudUploadOutlined } from '@mui/icons-material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { storage, db, serverTimestamp, ref, uploadBytesResumable, getDownloadURL, getDoc, setDoc, doc, addDoc, updateDoc } from '../firebase';
@@ -293,9 +296,9 @@ function Navbar({ props }) {
           <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
             <input {...getInputProps()} />
             {isDragActive && files.length==0 ? (
-              <p>Drop the files here...</p>
+             <div id='upload-cont'><CloudUploadOutlined /></div>
             ) : (
-              <p>Drag and drop files here, or click to select files</p>
+            <div id='upload-cont'><CloudUploadOutlined /></div>
             )}
             <div className="thumbnails">
               {files.map((file, index) => (

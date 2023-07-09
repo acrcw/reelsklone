@@ -110,7 +110,7 @@ export default function Login() {
             >
 
                 <div className='signup-logo'> <img src={Instagram} /></div>
-                <Box component="form" Validate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                <Box component="form" validate="true" onSubmit={handleSubmit} sx={{ mt: 1 }}>
                     <Grid container spacing={4}>
                         <Grid item xs={16}>
                             <TextField
