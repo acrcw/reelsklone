@@ -137,7 +137,7 @@ function Feed() {
 
   useEffect(() => {
     const fetchpost = async () => {
-      const q = query(collection(db, "posts"), orderBy("createdat", "desc"), limit(20))
+      const q = query(collection(db, "posts"), orderBy("createdat", "desc"), limit(100))
       const querySnapshot = await getDocs(q);
       let postarr = [];
       querySnapshot.forEach((doc) => {
