@@ -8,7 +8,7 @@ import Signup from './Components/Signup';
 import Feed from './Components/Feed';
 import { AuthProvider } from './Context/Authcontext';
 import PrivateRoute from './Components/PrivateRoute';
-
+import Profile from './Components/Profile';
 function App() {
   
   return (
