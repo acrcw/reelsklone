@@ -1,10 +1,10 @@
 
-import React, { useCallback, useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import { CloudUploadOutlined } from '@mui/icons-material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import { storage, db, serverTimestamp, ref, uploadBytesResumable, getDownloadURL, getDoc, setDoc, doc, addDoc, updateDoc } from '../firebase';
+import { storage, db, serverTimestamp, ref, uploadBytesResumable, getDownloadURL, setDoc, doc, } from '../firebase';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -35,9 +35,7 @@ function Navbar({ props }) {
   const { user, logout } = useContext(AuthContext);
   const [files, setFiles] = useState([]);
   const [open, setOpen] = React.useState(false);
-  const handledropzoneOpen = () => {
-    setOpen(true);
-  };
+
 
   const handledropzoneClose = () => {
     setOpen(false);

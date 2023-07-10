@@ -1,30 +1,17 @@
 import {
-  storage,
   db,
-  getMetadata,
-  serverTimestamp,
-  Timestamp,
-  ref,
-  uploadBytesResumable,
   orderBy,
   limit,
-  getDownloadURL,
-  getDoc,
-  setDoc,
   doc,
-  addDoc,
   updateDoc,
   collection,
   query,
-  where,
   getDocs,
 } from "../firebase";
 import React, { useEffect, useState, useContext } from "react";
-
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Slide from "@mui/material/Slide";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Navbar from "./Navbar";
 import AspectRatio from "@mui/joy/AspectRatio";
@@ -36,12 +23,8 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import Link from "@mui/joy/Link";
 import IconButton from "@mui/joy/IconButton";
 import Input from "@mui/joy/Input";
-
-import { styled } from "@mui/material/styles";
-
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
 import Typography from "@mui/joy/Typography";
 import MoreHoriz from "@mui/icons-material/MoreHoriz";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
@@ -50,18 +33,7 @@ import SendOutlined from "@mui/icons-material/SendOutlined";
 import { AuthContext } from "../Context/Authcontext";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import { useTheme } from "@mui/material/styles";
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  maxWidth: 400,
-  color: theme.palette.text.primary,
-}));
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-const message = `Truncation should be conditionally applicable on this long line of text
- as this is a much longer line than what the container can support. `;
+
 function Feed() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
