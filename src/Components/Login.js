@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Route, useNavigate, Routes, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CarouselProvider, Slider, Slide, Image } from 'pure-react-carousel';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
