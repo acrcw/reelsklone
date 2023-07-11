@@ -121,7 +121,27 @@ function Feed() {
 
     setUpload(message);
   };
-
+  const cb = (entries) => {
+    entries.forEach((entry) => {
+      let videoitself = entry.target.childNodes[0];
+      let vid=videoitself.childNodes[0]
+      vid.play().then(() => {
+        if (!vid.paused && !entry.isIntersecting) {
+          vid.pause();
+        }
+      })
+    })
+  }
+  let observer = new IntersectionObserver(cb, { threshold: 0.6 })
+  useEffect(() => {
+    const element = document.querySelectorAll(".vid-container")
+    element.forEach((element) => {
+      observer.observe(element)
+    })
+    return ()=>{
+      observer.disconnect();
+    }
+  }, [post])
   useEffect(() => {
     const fetchpost = async () => {
       const q = query(
@@ -215,18 +235,18 @@ function Feed() {
                   </CardContent>
                   <CardOverflow>
                     {post.contenttype === "image" ? (
-                      <AspectRatio>
+                      <AspectRatio  maxHeight="90vh" >
                         <img src={post.posturl} alt="" loading="lazy" />{" "}
                       </AspectRatio>
                     ) : (
-                      <AspectRatio>
+                      <AspectRatio className="vid-container" maxHeight="80vh" objectFit="contain" ratio="9/16">
                         <video
                           src={post.posturl}
                           controls
                           controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar"
                           className="vid"
                           disablePictureInPicture={true}
-                          muted
+                          muted="muted"
                           autoPlay
                           loop
                           alt=""

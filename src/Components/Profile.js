@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { storage, db, collection, query, where, getDoc, getDocs, doc, } from '../firebase';
+import { db, collection, query, where, getDoc, getDocs, doc, } from '../firebase';
 import { useParams } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
+
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+
 import Avatar from '@mui/material/Avatar';
 function Profile() {
   const { id } = useParams();
@@ -66,6 +66,7 @@ function Profile() {
       <div className="post-section">
 
         {posts!=null?posts.map((post) => (<Card sx={{mx:"auto"}}>
+       
           <CardMedia className='post-item'
             sx={{ height: 200, width: 400 ,mx:"auto" ,my:"auto" }}
             component={post.contenttype=="image"?"img":"video"}
@@ -74,6 +75,7 @@ function Profile() {
             autoPlay
             muted
           />
+        
 
         
         </Card>)):""}
