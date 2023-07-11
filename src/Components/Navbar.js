@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useContext } from 'react';
-
+import { Link } from "react-router-dom";
 import { CloudUploadOutlined } from '@mui/icons-material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -153,6 +153,10 @@ function Navbar({ props }) {
     if (target.textContent === "Logout") {
       logout();
     }
+    else if(target.textContent === "Profile")
+    {
+      
+    }
     setAnchorElUser(null);
   };
 
@@ -273,7 +277,7 @@ function Navbar({ props }) {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={(e) => handleCloseUserMenu(e.currentTarget)}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  {setting==="Profile"?<Link to={`/profile/${user.uid}`}>{setting}</Link>:' '}
                 </MenuItem>
               ))}
             </Menu>
