@@ -18,7 +18,6 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/resetpassword" element={<Resetpassword />} />
-            <Route path="/profile" element={<Profile />} />
             <Route element={<PrivateRoute />}>
               <Route path="/profile/:id" element={<Profile />} />
               </Route>
