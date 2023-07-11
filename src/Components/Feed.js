@@ -128,6 +128,7 @@ function Feed() {
       vid.play().then(() => {
         if (!vid.paused && !entry.isIntersecting) {
           vid.pause();
+          vid.muted="";
         }
       })
     })
@@ -161,12 +162,7 @@ function Feed() {
     fetchpost();
     console.log("useeffect here");
   }, [upload]);
-  const handleclick = (e) => {
-    console.log("play");
-    e.preventDefault();
-    e.target.muted = !e.target.muted;
-  };
-
+ 
   return (
     <>
       <Navbar props={[updateUploadState, upload]} />
@@ -251,7 +247,8 @@ function Feed() {
                           loop
                           alt=""
                           loading="lazy"
-                          onClick={(e) => handleclick(e)}
+                         
+                          
                         />{" "}
                       </AspectRatio>
                     )}
