@@ -1,4 +1,4 @@
-import React, {  useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -90,10 +90,11 @@ export default function Login() {
           </CarouselProvider>
         </div>
       </div>
-
+    <div className="login_box_container">
       <Box
         className="login-cont"
         sx={{
+        //   backgroundColor: "red",
           marginTop: 1,
           display: "flex",
           flexDirection: "column",
@@ -110,6 +111,10 @@ export default function Login() {
           gap: 2,
           borderRadius: "sm",
           boxShadow: "md",
+          alignContent: "flex-start",
+          position: "relative",
+        
+          
         }}
       >
         <div className="signup-logo">
@@ -235,6 +240,7 @@ export default function Login() {
           </Grid>
         </Box>
       </Box>
+      </div>
     </div>
   );
 }
