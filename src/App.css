@@ -4,7 +4,6 @@
   color: black;
   display: flex;
   width: 100vw;
-
 }
 
 .wrapper {
@@ -38,10 +37,9 @@
   position: absolute;
   height: 40vh;
   width: 100vw;
- 
-  object-fit: scale-down;
-  object-position:center;
 
+  object-fit: scale-down;
+  object-position: center;
 }
 
 .container {
@@ -53,8 +51,8 @@
   top: 2rem;
   text-align: center;
   /* text-justify: auto; */
- align-self:  center;
-  left: calc(100vw - 52vw)
+  align-self: center;
+  left: calc(100vw - 52vw);
 }
 
 .logo {
@@ -63,7 +61,6 @@
   height: 5rem;
   top: 0.5rem;
   /* background-color: red; */
-
 }
 
 .logo img {
@@ -72,21 +69,19 @@
   display: flex;
   align-items: center;
   width: 12rem;
-
 }
-#root{
+#root {
   /* background-color: aqua; */
   display: flex;
-   height: 100vh; 
-   width: 100vw;
-   align-items: center;
-   justify-content: center;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-.signup-main-cont{
+.signup-main-cont {
+  /* background-color: red; */
   display: flex;
   align-items: center;
-  
-      
 }
 
 .logo-signup img {
@@ -105,7 +100,6 @@
 
 .nav-menu {
   position: relative;
-
 }
 
 .carousel-images {
@@ -118,7 +112,6 @@
   left: 9.8rem;
   /* z-index: 2; */
 }
-
 
 .tool-bar {
   display: flex;
@@ -142,38 +135,36 @@
   background-repeat: no-repeat;
   align-items: center;
   justify-content: flex-end;
-  background-position:center;
+  background-position: center;
   align-self: center;
-  
 }
-.login_box_container{
+.login_box_container {
   display: flex;
   height: 100vh;
   width: 40vw;
   /* background-color: blue; */
   align-items: center;
   justify-items: flex-start;
-  
+
   /* justify-content:left; */
   /* justify-items: auto;  */
-  
 }
-.login-cont{
+.login-cont {
   display: flex;
- 
+
   justify-self: left;
 }
-.carousel-images{
+.carousel-images {
   position: relative;
   left: -13.1rem;
   /* background-color: blue; */
-  top:-1.2rem;
+  top: -1.2rem;
 }
 
 .login-wrapper {
   display: flex;
   /* margin-top: 2rem; */
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
 
@@ -252,7 +243,7 @@ body {
   align-items: center;
 }
 
-@media only screen and (max-width:1082px) {
+@media only screen and (max-width: 1082px) {
   .signup-cont {
     /* background-color: red; */
     width: 70vw;
@@ -295,6 +286,4 @@ body {
   .signup-cont {
     display: block;
   }
-
-
 }
