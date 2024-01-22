@@ -161,10 +161,9 @@ function Navbar({ props }) {
   };
 
   return (<>
-    <AppBar position="sticky">
-      <Container maxWidth="xl" className="bar">
+    <AppBar position="sticky"  className='appbar'>
+      <Container maxWidth="" className="bar">
         <Toolbar disableGutters className='tool-bar'>
-
           <Typography
             variant="h6"
             noWrap

@@ -11,7 +11,9 @@
   overflow-y: hidden;
   /* overflow-x: scroll; */
 }
-
+.appbar {
+  margin: 0;
+}
 .post-item {
   /* margin-bottom: 2rem; */
 }
@@ -72,17 +74,26 @@
 }
 #root {
   /* background-color: aqua; */
-  display: flex;
-  flex-direction: column;
+  display: block;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
 }
-.signup-main-cont {
-  /* background-color: red; */
+.signup-wrapper {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup-main-cont {
+  background-color: blue;
+  display: flex;
+  justify-content: center;
   align-items: center;
+
+  width: 100vw;
+  height: 100vh;
 }
 
 .logo-signup img {
@@ -100,6 +111,7 @@
 }
 
 .nav-menu {
+  /* background-color: red; */
   position: relative;
 }
 
@@ -109,7 +121,7 @@
   object-fit: fill;
   width: 15.5rem;
   position: relative;
-  top: 1.5rem;
+  top: 0rem;
   left: 9.8rem;
   /* z-index: 2; */
 }
@@ -285,6 +297,16 @@ body {
   }
 
   .signup-cont {
-    display: block;
+    display: flex;
   }
+}
+
+.signup-cont {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }

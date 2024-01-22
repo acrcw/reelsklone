@@ -42,7 +42,7 @@ function Feed() {
   const [commentdata, setCommentdata] = React.useState([]);
   const [scroll, setScroll] = React.useState("paper");
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState([]);
   const { user } = useContext(AuthContext);
   const [upload, setUpload] = useState(true);
   const toggleDrawer = () => (event) => {
@@ -124,25 +124,28 @@ function Feed() {
   const cb = (entries) => {
     entries.forEach((entry) => {
       let videoitself = entry.target.childNodes[0];
-      let vid=videoitself.childNodes[0]
+      let vid = videoitself.childNodes[0];
       vid.play().then(() => {
         if (!vid.paused && !entry.isIntersecting) {
           vid.pause();
-          vid.muted="";
+          vid.muted = "";
         }
-      })
-    })
-  }
-  let observer = new IntersectionObserver(cb, { threshold: 0.6 })
+      });
+    });
+  };
+  let observer = new IntersectionObserver(cb, { threshold: 0.6 });
   useEffect(() => {
-    const element = document.querySelectorAll(".vid-container")
+    console.log(post.length)
+    const element = document.querySelectorAll(".vid-container");
     element.forEach((element) => {
-      observer.observe(element)
-    })
-    return ()=>{
+      observer.observe(element);
+    });
+    return () => {
       observer.disconnect();
-    }
-  }, [post])
+    };
+  
+    
+  }, [post]);
   useEffect(() => {
     const fetchpost = async () => {
       const q = query(
@@ -158,11 +161,13 @@ function Feed() {
         postarr.push({ id: `${doc.id}`, ...doc.data() });
       });
       setPost(postarr);
+      
     };
     fetchpost();
     console.log("useeffect here");
+    console.log(post.length);
   }, [upload]);
- 
+
   return (
     <>
       <Navbar props={[updateUploadState, upload]} />
@@ -231,11 +236,16 @@ function Feed() {
                   </CardContent>
                   <CardOverflow>
                     {post.contenttype === "image" ? (
-                      <AspectRatio  maxHeight="90vh" >
+                      <AspectRatio maxHeight="90vh">
                         <img src={post.posturl} alt="" loading="lazy" />{" "}
                       </AspectRatio>
                     ) : (
-                      <AspectRatio className="vid-container" maxHeight="80vh" objectFit="contain" ratio="9/16">
+                      <AspectRatio
+                        className="vid-container"
+                        maxHeight="80vh"
+                        objectFit="contain"
+                        ratio="9/16"
+                      >
                         <video
                           src={post.posturl}
                           controls
@@ -247,8 +257,6 @@ function Feed() {
                           loop
                           alt=""
                           loading="lazy"
-                         
-                          
                         />{" "}
                       </AspectRatio>
                     )}

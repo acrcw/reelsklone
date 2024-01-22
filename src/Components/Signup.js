@@ -151,7 +151,7 @@ export default function SignUp() {
       <Container component="main" maxWidth="xs" className="signup-main-cont">
         {/* <CssBaseline /> */}
 
-     
+     <div className="signup-wrapper">
           <Box
             className="signup-cont"
             sx={{
@@ -317,6 +317,7 @@ export default function SignUp() {
           </Box>
 
           <Copyright sx={{ mt: 2 }} />
+          </div>
        
       </Container>
     </ThemeProvider>
