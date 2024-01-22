@@ -110,7 +110,7 @@
   display: flex;
 
   align-items: center;
-  background-color: red;
+  /* background-color: red; */
   width: 98vw;
   left: -1.5rem;
   height: 1rem;
