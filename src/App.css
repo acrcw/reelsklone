@@ -110,7 +110,7 @@
   display: flex;
 
   align-items: center;
-  /* background-color: red; */
+  background-color: red;
   width: 98vw;
   left: -1.5rem;
   height: 1rem;
@@ -118,18 +118,30 @@
 }
 
 .carousel-container {
+  background-color: red;
+  display: flex;
   position: relative;
   height: 100vh;
   width: 40vw;
-  left: 10rem;
+  /* left: 10rem; */
   background-image: url(./Icons/carousalcontaner.png);
   background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  align-self: center;
+  
+}
+.carousel-images{
+  position: relative;
+  left: 3rem;
+  top:-1.2rem;
 }
 
 .login-wrapper {
   display: flex;
-  margin-top: 2rem;
-  justify-content: space-around;
+  /* margin-top: 2rem; */
+  justify-content: center;
   align-items: center;
 }
 
