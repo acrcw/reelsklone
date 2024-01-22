@@ -148,7 +148,7 @@ export default function SignUp() {
   };
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" className="signup-main-cont">
+      <Container component="main" maxWidth="xs" className="signup-main-cont" sx={{display:"flex"}}>
         {/* <CssBaseline /> */}
 
      <div className="signup-wrapper">
